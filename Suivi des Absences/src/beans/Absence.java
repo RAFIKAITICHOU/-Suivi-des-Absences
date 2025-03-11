@@ -1,19 +1,9 @@
 package beans;
 
-// ✅ Import des classes Seance et Etudiant
-
 public class Absence {
-    private int id;
     private Seance seance;
     private Etudiant etudiant;
     private String justification;
-
-    public Absence(int id, Seance seance, Etudiant etudiant, String justification) {
-        this.id = id;
-        this.seance = seance;
-        this.etudiant = etudiant;
-        this.justification = justification;
-    }
 
     public Absence(Seance seance, Etudiant etudiant, String justification) {
         this.seance = seance;
@@ -21,8 +11,6 @@ public class Absence {
         this.justification = justification;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
 
     public Seance getSeance() { return seance; }
     public void setSeance(Seance seance) { this.seance = seance; }
@@ -35,8 +23,8 @@ public class Absence {
 
     @Override
     public String toString() {
-        return "Absence { ID: " + id + 
-               ", Étudiant: " + etudiant.getNom() + " " + etudiant.getPrenom() + 
+        return "Absence { 
+               "Étudiant: " + etudiant.getNom() + " " + etudiant.getPrenom() + 
                ", Matière: " + seance.getMatiere() + 
                ", Justification: " + justification + " }";
     }
