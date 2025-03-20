@@ -53,6 +53,11 @@ public class RechercheAbsenceForm extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAbsences = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Rechercher Absence par Étudiant"));
 
         jLabel1.setText("Nom de l'étudiant :");

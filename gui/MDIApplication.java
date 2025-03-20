@@ -32,12 +32,13 @@ public class MDIApplication extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         absenceMenuItem = new javax.swing.JMenuItem();
-        RechercheAbsenceMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         editMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
@@ -54,14 +55,6 @@ public class MDIApplication extends javax.swing.JFrame {
             }
         });
         fileMenu.add(absenceMenuItem);
-
-        RechercheAbsenceMenuItem.setText("Recherche Absence");
-        RechercheAbsenceMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RechercheAbsenceMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(RechercheAbsenceMenuItem);
 
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Etudaint");
@@ -87,6 +80,23 @@ public class MDIApplication extends javax.swing.JFrame {
 
         editMenu.setMnemonic('e');
         editMenu.setText("Recherche");
+
+        jMenuItem1.setText("Recherche Absence");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        editMenu.add(jMenuItem1);
+
+        jMenuItem2.setText("Recherche par etudiant");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        editMenu.add(jMenuItem2);
+
         menuBar.add(editMenu);
 
         helpMenu.setMnemonic('h');
@@ -132,12 +142,19 @@ public class MDIApplication extends javax.swing.JFrame {
         ef.setVisible(true); 
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
-    private void RechercheAbsenceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RechercheAbsenceMenuItemActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         RechercheAbsenceForm raf = new RechercheAbsenceForm();
         desktopPane.add(raf);
         raf.setVisible(true); 
-    }//GEN-LAST:event_RechercheAbsenceMenuItemActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        EtudiantByName en = new EtudiantByName();
+        desktopPane.add(en);
+        en.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,7 +192,6 @@ public class MDIApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem RechercheAbsenceMenuItem;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem absenceMenuItem;
     private javax.swing.JDesktopPane desktopPane;
@@ -183,6 +199,8 @@ public class MDIApplication extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenuBar menuBar;
