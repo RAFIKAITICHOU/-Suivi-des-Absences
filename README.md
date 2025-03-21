@@ -20,6 +20,11 @@ La base de données MySQL **SuiviAbsences** est composée des tables suivantes :
 - **Etudiant** : Contient les informations sur les étudiants.
 - **Absence** : Contient les informations sur les absences des étudiants.
 - **Utilisateur** : Contient les informations sur les utilisateurs de l'application.
+## 📽️ Démonstration Vidéo
+👉 [▶️ Cliquez ici pour voir la démo vidéo]
+voilà le lien de la video aussi : https://drive.google.com/file/d/1ov1Ox5MCQatQwRkCEIJK7a00RHMXn6Go/view?usp=drive_link
+
+> La vidéo montre comment fonctionne l'application l'application.
 
 ## Schéma de la Base de Données
 
@@ -55,8 +60,3 @@ CREATE TABLE Utilisateur (
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'enseignant', 'etudiant') NOT NULL
 );
-## 📽️ Démonstration Vidéo
-👉 [▶️ Cliquez ici pour voir la démo vidéo]
-voilà le lien de la video aussi : https://drive.google.com/file/d/1ov1Ox5MCQatQwRkCEIJK7a00RHMXn6Go/view?usp=drive_link
-
-> La vidéo montre comment fonctionne l'application l'application.
