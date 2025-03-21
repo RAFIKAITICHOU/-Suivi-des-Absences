@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EtudiantService implements IDao<Etudiant> {
+
     private Connexion connexion;
 
     public EtudiantService() {
@@ -32,7 +33,7 @@ public class EtudiantService implements IDao<Etudiant> {
                 return true;
             }
         } catch (SQLException ex) {
-            ex.printStackTrace(); 
+            ex.printStackTrace();
         }
         return false;
     }
@@ -87,10 +88,10 @@ public class EtudiantService implements IDao<Etudiant> {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new Etudiant(
-                    rs.getInt("id"), 
-                    rs.getString("nom"), 
-                    rs.getString("prenom"), 
-                    rs.getString("email")
+                        rs.getInt("id"),
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("email")
                 );
             }
         } catch (SQLException ex) {
@@ -108,10 +109,10 @@ public class EtudiantService implements IDao<Etudiant> {
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 etudiants.add(new Etudiant(
-                    rs.getInt("id"), 
-                    rs.getString("nom"), 
-                    rs.getString("prenom"), 
-                    rs.getString("email")
+                        rs.getInt("id"),
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("email")
                 ));
             }
         } catch (SQLException ex) {
@@ -129,10 +130,10 @@ public class EtudiantService implements IDao<Etudiant> {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 etudiants.add(new Etudiant(
-                    rs.getInt("id"), 
-                    rs.getString("nom"), 
-                    rs.getString("prenom"), 
-                    rs.getString("email")
+                        rs.getInt("id"),
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("email")
                 ));
             }
         } catch (SQLException ex) {

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
 package services;
+
 import beans.User;
 import connexion.Connexion;
 import dao.IUserDao;
@@ -18,7 +19,7 @@ import java.util.Random;
  */
 public class UserService implements IUserDao {
 
-   private Connexion connexion;
+    private Connexion connexion;
 
     public UserService() {
         connexion = Connexion.getInstance();
@@ -69,7 +70,7 @@ public class UserService implements IUserDao {
         }
         return false;
     }
-    
+
     public boolean userExists(String login) {
         String req = "SELECT * FROM user WHERE login = ?";
         try {
@@ -81,7 +82,7 @@ public class UserService implements IUserDao {
             System.out.println(ex.getMessage());
         }
         return false;
-    }   
+    }
 
     public boolean updatePassword(String login, String newPassword) {
         String req = "UPDATE user SET password = SHA1(?) WHERE login = ?";

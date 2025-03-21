@@ -83,11 +83,11 @@ public class AbsenceService {
 
     public List<Absence> findByEtudiantNom(String nom) {
         List<Absence> absences = new ArrayList<>();
-        String req = "SELECT a.justification, e.id AS etuId, e.nom, e.prenom, s.id AS seanceId, s.matiere " +
-                     "FROM Absence a " +
-                     "JOIN Etudiant e ON a.etudiant_id = e.id " +
-                     "JOIN Seance s ON a.seance_id = s.id " +
-                     "WHERE e.nom LIKE ?";
+        String req = "SELECT a.justification, e.id AS etuId, e.nom, e.prenom, s.id AS seanceId, s.matiere "
+                + "FROM Absence a "
+                + "JOIN Etudiant e ON a.etudiant_id = e.id "
+                + "JOIN Seance s ON a.seance_id = s.id "
+                + "WHERE e.nom LIKE ?";
         try {
             PreparedStatement ps = connexion.getCn().prepareStatement(req);
             ps.setString(1, "%" + nom + "%");

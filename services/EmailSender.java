@@ -6,6 +6,7 @@ import javax.mail.internet.*;
 
 /**
  * Classe responsable de l'envoi des emails via SMTP
+ *
  * @author ichou
  */
 public class EmailSender {
@@ -15,6 +16,7 @@ public class EmailSender {
 
     /**
      * Envoie un email à un destinataire avec un sujet et un contenu donnés
+     *
      * @param to Destinataire
      * @param subject Sujet de l'email
      * @param messageText Contenu du message (HTML accepté)
@@ -22,7 +24,7 @@ public class EmailSender {
      */
     public static boolean sendEmail(String to, String subject, String messageText) {
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com"); 
+        props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -39,7 +41,7 @@ public class EmailSender {
             msg.setFrom(new InternetAddress(FROM_EMAIL));
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
             msg.setSubject(subject);
-            msg.setContent(messageText, "text/html; charset=UTF-8"); 
+            msg.setContent(messageText, "text/html; charset=UTF-8");
             msg.setSentDate(new java.util.Date());
 
             Transport.send(msg);

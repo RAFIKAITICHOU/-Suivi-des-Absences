@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SeanceService implements IDao<Seance> {
+
     private Connexion connexion;
 
     public SeanceService() {
@@ -76,11 +77,11 @@ public class SeanceService implements IDao<Seance> {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new Seance(
-                    rs.getInt("id"), 
-                    rs.getString("matiere"), 
-                    rs.getDate("date"), 
-                    rs.getString("heure"), 
-                    rs.getString("salle")
+                        rs.getInt("id"),
+                        rs.getString("matiere"),
+                        rs.getDate("date"),
+                        rs.getString("heure"),
+                        rs.getString("salle")
                 );
             }
         } catch (SQLException ex) {
@@ -98,11 +99,11 @@ public class SeanceService implements IDao<Seance> {
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 seances.add(new Seance(
-                    rs.getInt("id"), 
-                    rs.getString("matiere"), 
-                    rs.getDate("date"), 
-                    rs.getString("heure"), 
-                    rs.getString("salle")
+                        rs.getInt("id"),
+                        rs.getString("matiere"),
+                        rs.getDate("date"),
+                        rs.getString("heure"),
+                        rs.getString("salle")
                 ));
             }
         } catch (SQLException ex) {
@@ -120,11 +121,11 @@ public class SeanceService implements IDao<Seance> {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 seances.add(new Seance(
-                    rs.getInt("id"), 
-                    rs.getString("matiere"), 
-                    rs.getDate("date"), 
-                    rs.getString("heure"), 
-                    rs.getString("salle")
+                        rs.getInt("id"),
+                        rs.getString("matiere"),
+                        rs.getDate("date"),
+                        rs.getString("heure"),
+                        rs.getString("salle")
                 ));
             }
         } catch (SQLException ex) {
