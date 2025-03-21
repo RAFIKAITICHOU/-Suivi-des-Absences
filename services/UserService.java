@@ -17,7 +17,8 @@ import java.util.Random;
  * @author ichou
  */
 public class UserService implements IUserDao {
-    private Connexion connexion;
+
+   private Connexion connexion;
 
     public UserService() {
         connexion = Connexion.getInstance();
@@ -68,36 +69,31 @@ public class UserService implements IUserDao {
         }
         return false;
     }
-    public String resetPassword(String login) {
-        String newPassword = generateTemporaryPassword();
-        String query = "UPDATE user SET password = SHA1(?) WHERE login = ?";
-        
-        try {
-            PreparedStatement pstmt = connexion.getCn().prepareStatement(query);
-            pstmt.setString(1, newPassword);
-            pstmt.setString(2, login);
-            
-            int rowsUpdated = pstmt.executeUpdate();
-            
-            if (rowsUpdated > 0) {
-                return newPassword;
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            System.out.println("Erreur lors de la réinitialisation du mot de passe : " + e.getMessage());
-            
-        }
-        return null;
-    }
     
-    private String generateTemporaryPassword() {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(8);
-        for (int i = 0; i < 8; i++) {
-            sb.append(chars.charAt(random.nextInt(chars.length())));
+    public boolean userExists(String login) {
+        String req = "SELECT * FROM user WHERE login = ?";
+        try {
+            PreparedStatement ps = connexion.getCn().prepareStatement(req);
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            return rs.next(); // Retourne true si l'utilisateur existe, sinon false
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
-        return sb.toString();
+        return false;
+    }   
+
+    public boolean updatePassword(String login, String newPassword) {
+        String req = "UPDATE user SET password = SHA1(?) WHERE login = ?";
+        try {
+            PreparedStatement ps = connexion.getCn().prepareStatement(req);
+            ps.setString(1, newPassword);
+            ps.setString(2, login);
+            int rowsUpdated = ps.executeUpdate();
+            return rowsUpdated > 0; // Retourne true si la mise à jour a réussi, sinon false
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
 }
