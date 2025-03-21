@@ -55,4 +55,8 @@ CREATE TABLE Utilisateur (
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'enseignant', 'etudiant') NOT NULL
 );
+## 📽️ Démonstration Vidéo
+👉 [▶️ Cliquez ici pour voir la démo vidéo]
+voilà le lien de la video aussi : https://drive.google.com/file/d/1ov1Ox5MCQatQwRkCEIJK7a00RHMXn6Go/view?usp=drive_link
 
+> La vidéo montre comment fonctionne l'application l'application.
