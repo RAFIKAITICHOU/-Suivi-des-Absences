@@ -69,6 +69,7 @@ GestionAbsencesEtudiants/
 ├── lib/                      # Librairies externes (JCalendar, Connector/J)
 ├── resources/                # Images et fichiers de config
 └── README.md                 # Documentation
+---
 
 
 ## 📊 Schéma SQL de la Base de Données
