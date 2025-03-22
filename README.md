@@ -70,7 +70,7 @@ GestionAbsencesEtudiants/
 ├── lib/                      # Librairies externes (JCalendar, Connector/J)
 ├── resources/                # Images et fichiers de config
 └── README.md                 # Documentation
-
+```
 ---
 ## 🗂️ Diagrammes UML
 📌 **Diagramme de Cas d'Utilisation**
