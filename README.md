@@ -52,7 +52,7 @@ JFreeChart (optionnel) : Visualisation graphique (absences par matière).
 ---
 ---
 ## 🏢 Architecture du Projet
-
+```
 GestionAbsencesEtudiants/
 ├── src/
 │   ├── beans/                # Modèles (Seance, Etudiant, Absence, Utilisateur)
