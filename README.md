@@ -38,6 +38,38 @@ Faciliter la gestion des absences des étudiants dans un établissement scolaire
 | **Utilisateur** | Gestion des utilisateurs et rôles.                 |
 
 ---
+## 🖥️ Technologies et Bibliothèques Utilisées
+Java (Swing) : Développement de l'interface graphique.
+
+MySQL : Base de données relationnelle.
+
+MySQL Connector/J : Connexion Java-MySQL (JDBC).
+
+JCalendar : Gestion des dates dans les formulaires.
+
+JFreeChart (optionnel) : Visualisation graphique (absences par matière).
+
+---
+## 🏢 Architecture du Projet
+```
+GestionAbsencesEtudiants/
+├── src/
+│   ├── beans/                # Modèles (Seance, Etudiant, Absence, Utilisateur)
+│   ├── connexion/            # Connexion MySQL
+│   ├── dao/                  # Data Access Object (DAO)
+│   ├── gui/                  # Interfaces Swing (JInternalFrame)
+│   │   ├── SeanceForm.java
+│   │   ├── EtudiantForm.java
+│   │   ├── AbsenceForm.java
+│   │   ├── RechercheAbsenceForm.java
+│   │   ├── MDIApplication.java
+│   │   └── Main.java
+│   ├── services/             # Logique métier
+│   └── test/                 # Tests unitaires
+├── lib/                      # Librairies externes (JCalendar, Connector/J)
+├── resources/                # Images et fichiers de config
+└── README.md                 # Documentation
+
 
 ## 📊 Schéma SQL de la Base de Données
 
@@ -74,15 +106,4 @@ CREATE TABLE Utilisateur (
     role ENUM('admin', 'enseignant', 'etudiant') NOT NULL
 );
 ---
-## 🖥️ Technologies et Bibliothèques Utilisées
-Java (Swing) : Développement de l'interface graphique.
-
-MySQL : Base de données relationnelle.
-
-MySQL Connector/J : Connexion Java-MySQL (JDBC).
-
-JCalendar : Gestion des dates dans les formulaires.
-
-JFreeChart (optionnel) : Visualisation graphique (absences par matière).
-
 
