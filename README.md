@@ -50,28 +50,6 @@ JCalendar : Gestion des dates dans les formulaires.
 JFreeChart (optionnel) : Visualisation graphique (absences par matière).
 
 ---
-## 🏢 Architecture du Projet
-```
-GestionAbsencesEtudiants/
-├── src/
-│   ├── beans/                # Modèles (Seance, Etudiant, Absence, Utilisateur)
-│   ├── connexion/            # Connexion MySQL
-│   ├── dao/                  # Data Access Object (DAO)
-│   ├── gui/                  # Interfaces Swing (JInternalFrame)
-│   │   ├── SeanceForm.java
-│   │   ├── EtudiantForm.java
-│   │   ├── AbsenceForm.java
-│   │   ├── RechercheAbsenceForm.java
-│   │   ├── MDIApplication.java
-│   │   └── Main.java
-│   ├── services/             # Logique métier
-│   └── test/                 # Tests unitaires
-├── lib/                      # Librairies externes (JCalendar, Connector/J)
-├── resources/                # Images et fichiers de config
-└── README.md                 # Documentation
----
-
-
 ## 📊 Schéma SQL de la Base de Données
 
 ```sql
@@ -106,5 +84,76 @@ CREATE TABLE Utilisateur (
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'enseignant', 'etudiant') NOT NULL
 );
+---
+
+---
+## 🏢 Architecture du Projet
+
+GestionAbsencesEtudiants/
+├── src/
+│   ├── beans/                # Modèles (Seance, Etudiant, Absence, Utilisateur)
+│   ├── connexion/            # Connexion MySQL
+│   ├── dao/                  # Data Access Object (DAO)
+│   ├── gui/                  # Interfaces Swing (JInternalFrame)
+│   │   ├── SeanceForm.java
+│   │   ├── EtudiantForm.java
+│   │   ├── AbsenceForm.java
+│   │   ├── RechercheAbsenceForm.java
+│   │   ├── MDIApplication.java
+│   │   └── Main.java
+│   ├── services/             # Logique métier
+│   └── test/                 # Tests unitaires
+├── lib/                      # Librairies externes (JCalendar, Connector/J)
+├── resources/                # Images et fichiers de config
+└── README.md                 # Documentation
+
+---
+## 🗂️ Diagrammes UML
+📌 **Diagramme de Cas d'Utilisation**
+
+
+📌 **Diagramme de Classe**
+
+---
+## 📽️ Démonstration Vidéo
+👉 ▶️ Cliquez ici pour voir la démo vidéo
+
+La vidéo montre le fonctionnement complet de l'application.
+
+---
+## 🔒 Gestion des Utilisateurs
+L'application gère plusieurs rôles :
+
+**Administrateur**
+
+**Enseignant**
+
+**Étudiant**
+
+Chaque utilisateur a un accès spécifique selon son rôle.
+
+---
+## ⚙️ Visualisation de l'Architecture - MVC (Modèle - Vue - Contrôleur)
+**Modèle (beans/dao)** : Représente la base de données et la logique de persistance.
+
+**Vue (gui/)** : Formulaires Swing pour interagir avec l'utilisateur.
+
+**Contrôleur (services/)** : Gère la logique métier et les traitements.
+
+---
+## 📈 Évolutions Futures Possibles
+
+1.Ajout de graphiques statistiques (par matière, par étudiant).
+
+2.Envoi automatique des rapports d’absences par mail.
+
+3.Accès distant à l’application.
+
+---
+## 🤝 Contributeurs
+AIT ICHOU RAFIK
+
+Encadrant: **LACHGAR Mohamed**
+
 ---
 
