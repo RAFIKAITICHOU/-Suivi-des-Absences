@@ -1,32 +1,45 @@
 # Gestion des Absences des Étudiants
+
 <p align="center">
-  <img src="Gestion%20ABS.png" alt="Logo de l'application">
+  <img src="Gestion%20ABS.png" alt="Logo de l'application" width="300">
 </p>
-Ce projet est une application de **gestion des absences des étudiants**.
-Il permet de gérer les **séances**, les **étudiants** et leurs **absences**.
-L'application est développée en **Java** avec une base de données **MySQL**.
 
-## Fonctionnalités
-- **Ajouter une séance** : Permet d'ajouter une nouvelle séance avec sa matière, sa date, son heure et sa salle.
-- **Inscrire un étudiant** : Permet d'ajouter un nouvel étudiant avec son nom, prénom et email.
-- **Enregistrer une absence** : Permet d'enregistrer une absence pour un étudiant à une séance donnée avec une justification.
-- **Filtrer les absences par matière** : Permet de lister les absences pour une matière donnée.
-- **Rechercher un étudiant** : Permet de rechercher un étudiant par son nom ou son email.
+Ce projet est une application de **gestion des absences des étudiants**.  
+Elle permet de gérer les **séances**, les **étudiants** et leurs **absences** de manière simple et efficace.  
+L'application est développée en **Java (Swing)** avec une base de données **MySQL**.
 
-## Structure de la Base de Données
-La base de données MySQL **SuiviAbsences** est composée des tables suivantes :
+---
 
-- **Seance** : Contient les informations sur les séances.
-- **Etudiant** : Contient les informations sur les étudiants.
-- **Absence** : Contient les informations sur les absences des étudiants.
-- **Utilisateur** : Contient les informations sur les utilisateurs de l'application.
-## 📽️ Démonstration Vidéo
-👉 [▶️ Cliquez ici pour voir la démo vidéo]
-voilà le lien de la video aussi : https://drive.google.com/file/d/1ov1Ox5MCQatQwRkCEIJK7a00RHMXn6Go/view?usp=drive_link
+## 🎯 Objectif du Projet
 
-> La vidéo montre comment fonctionne l'application l'application.
+Faciliter la gestion des absences des étudiants dans un établissement scolaire ou universitaire en automatisant :
+- L’enregistrement des absences,
+- Le suivi des étudiants,
+- La génération de rapports.
 
-## Schéma de la Base de Données
+---
+
+## ✅ Fonctionnalités Principales
+- **Gestion des Séances** : Ajout et suppression des séances (matière, date, heure, salle).
+- **Gestion des Étudiants** : Inscription des étudiants avec photo ou logo.
+- **Gestion des Absences** : Enregistrement des absences avec justification.
+- **Filtrage par Matière** : Liste des absences par matière donnée.
+- **Recherche Étudiant** : Recherche rapide par nom ou email.
+
+---
+
+## 📄 Structure de la Base de Données
+
+| Table           | Description                                        |
+| --------------- | -------------------------------------------------- |
+| **Seance**      | Contient les informations des séances.             |
+| **Etudiant**    | Informations des étudiants et leur logo.           |
+| **Absence**     | Enregistre les absences des étudiants aux séances. |
+| **Utilisateur** | Gestion des utilisateurs et rôles.                 |
+
+---
+
+## 📊 Schéma SQL de la Base de Données
 
 ```sql
 CREATE TABLE Seance (
@@ -42,7 +55,7 @@ CREATE TABLE Etudiant (
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    logo VARCHAR(255) -- Emplacement du logo
+    logo VARCHAR(255)
 );
 
 CREATE TABLE Absence (
@@ -60,3 +73,16 @@ CREATE TABLE Utilisateur (
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'enseignant', 'etudiant') NOT NULL
 );
+---
+## 🖥️ Technologies et Bibliothèques Utilisées
+Java (Swing) : Développement de l'interface graphique.
+
+MySQL : Base de données relationnelle.
+
+MySQL Connector/J : Connexion Java-MySQL (JDBC).
+
+JCalendar : Gestion des dates dans les formulaires.
+
+JFreeChart (optionnel) : Visualisation graphique (absences par matière).
+
+
