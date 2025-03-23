@@ -112,7 +112,7 @@ GestionAbsencesEtudiants/
 
 
 📌 **Diagramme de Classe**
-![image](https://github.com/user-attachments/assets/1763b80e-94ae-4e38-9dc3-9b7753b7f70a)
+![image]([https://github.com/user-attachments/assets/1763b80e-94ae-4e38-9dc3-9b7753b7f70a](https://github.com/RAFIKAITICHOU/-Suivi-des-Absences/blob/main/%20diagramme%20de%20classe.jpeg))
 
 
 ---
