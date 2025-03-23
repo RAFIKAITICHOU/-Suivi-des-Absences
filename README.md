@@ -113,7 +113,7 @@ GestionAbsencesEtudiants/
 
 
 📌 **Diagramme de Classe**
-![image](https://github.com/RAFIKAITICHOU/-Suivi-des-Absences/blob/main/%20diagramme%20de%20classe.jpeg)
+![image](https://github.com/RAFIKAITICHOU/-Suivi-des-Absences/blob/main/use%20cas.png)
 
 
 ---
