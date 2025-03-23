@@ -118,7 +118,8 @@ GestionAbsencesEtudiants/
 
 ---
 ## 📽️ Démonstration Vidéo
-👉 ▶️ Cliquez ici pour voir la démo vidéo
+👉 ▶️ Cliquez ici pour voir <a href="https://drive.google.com/file/d/1o0jCbQJ85ejwcPmp3jGhBefYCbPubOeF/view?usp=sharing">la démo vidéo</a> :
+
 
 La vidéo montre le fonctionnement complet de l'application.
 
