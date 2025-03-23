@@ -109,6 +109,7 @@ GestionAbsencesEtudiants/
 ---
 ## 🗂️ Diagrammes UML
 📌 **Diagramme de Cas d'Utilisation**
+![image](https://github.com/RAFIKAITICHOU/-Suivi-des-Absences/blob/main/use%20cas.png)
 
 
 📌 **Diagramme de Classe**
