@@ -124,6 +124,8 @@ GestionAbsencesEtudiants/
 
 <a href="https://drive.google.com/file/d/1o0jCbQJ85ejwcPmp3jGhBefYCbPubOeF/view?usp=sharing">ici</a>
 
+https://github.com/user-attachments/assets/b8dfa16a-f37a-465b-906a-c0e9cf9395ff
+
 La vidéo montre le fonctionnement complet de l'application.
 
 ---
