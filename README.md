@@ -121,6 +121,11 @@ GestionAbsencesEtudiants/
 
 [🎥 Voir la démonstration vidéo](https://github.com/RAFIKAITICHOU/-Suivi-des-Absences/blob/main/Enregistrement%20de%20l%E2%80%99e%CC%81cran%202025-03-23%20a%CC%80%2012.02.37.mp4)
 
+<video width="600" controls>
+  <source src="https://github.com/RAFIKAITICHOU/-Suivi-des-Absences/raw/main/Enregistrement%20de%20l%E2%80%99e%CC%81cran%202025-03-23%20a%CC%80%2012.02.37.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la lecture vidéo.
+</video>
+
 La vidéo montre le fonctionnement complet de l'application.
 
 ---
