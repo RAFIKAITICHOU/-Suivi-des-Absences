@@ -112,9 +112,7 @@ GestionAbsencesEtudiants/
 
 
 📌 **Diagramme de Classe**
-<p align="center">
-  <img src="diagramme%20de%20classe.jpeg" alt="Diagramme de Classe">
-</p>
+![image](https://github.com/user-attachments/assets/1763b80e-94ae-4e38-9dc3-9b7753b7f70a)
 
 
 ---
