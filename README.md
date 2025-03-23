@@ -1,7 +1,7 @@
 # Gestion des Absences des Étudiants
 
 <p align="center">
-  <img src="Gestion%20ABS.png" alt="Logo de l'application" width="300">
+  <img src="Gestion%20ABS.png" alt="Logo de l'application" width="600">
 </p>
 
 Ce projet est une application de **gestion des absences des étudiants**.  
