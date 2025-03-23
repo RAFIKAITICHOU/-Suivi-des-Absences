@@ -33,9 +33,6 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
         as = new AbsenceService();
         model = (DefaultTableModel) listeAbsences.getModel();
         load();
-
-        /*txtSeanceActionPerformed(null);
-        txtEtudiantActionPerformed(null);*/
         remplirComboSeance();
         remplirComboEtudiant();
     }
@@ -44,7 +41,7 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
         try {
             txtSeance.removeAllItems();
             for (Seance s : new SeanceService().findAll()) {
-                txtSeance.addItem(s.getMatiere()); // Ajoute le nom de la matière
+                txtSeance.addItem(s.getMatiere());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,7 +51,6 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
 
     private void remplirComboEtudiant() {
         txtEtudiant.removeAllItems();
-
         for (Etudiant e : new EtudiantService().findAll()) {
             txtEtudiant.addItem(e.getNom());
         }
@@ -63,7 +59,15 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
     public void load() {
         model.setRowCount(0);
         for (Absence a : as.findAll()) {
-            model.addRow(new Object[]{a.getId(), a.getSeance().getMatiere(), a.getEtudiant().getNom(), a.getEtudiant().getPrenom(), a.getJustification()});
+            model.addRow(new Object[]{
+                a.getId(),
+                a.getSeance().getMatiere(),
+                a.getDate(),
+                a.getHeure(),
+                a.getEtudiant().getNom(),
+                a.getEtudiant().getPrenom(),
+                a.getJustification()
+            });
         }
     }
 
@@ -86,6 +90,10 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
         bnUpdate = new javax.swing.JButton();
         txtSeance = new javax.swing.JComboBox<>();
         txtEtudiant = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtHaure = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listeAbsences = new javax.swing.JTable();
@@ -148,28 +156,36 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel4.setText("Date");
+
+        jLabel5.setText("Haure");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtJustification, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(txtJustification, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                     .addComponent(txtSeance, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtEtudiant, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(181, 181, 181)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(21, 21, 21))
+                    .addComponent(txtEtudiant, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDate)
+                    .addComponent(txtHaure))
+                .addGap(104, 104, 104)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bnDelete)
+                    .addComponent(bnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(98, 98, 98))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,24 +194,33 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(txtSeance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtHaure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtJustification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtJustification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addContainerGap(46, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bnUpdate)
-                        .addGap(29, 29, 29)
+                        .addGap(18, 18, 18)
                         .addComponent(bnAdd)
-                        .addGap(29, 29, 29)))
-                .addComponent(bnDelete)
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(bnDelete)
+                        .addGap(24, 24, 24))))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -207,11 +232,11 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Id", "Seance", "Etudaint Nom", "Etudaint Prenom", "Justification"
+                "Id", "Seance", "Date", "Haure", "Etudaint Nom", "Etudaint Prenom", "Justification"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -231,8 +256,8 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,6 +292,7 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String justification = txtJustification.getText();
         JOptionPane.showMessageDialog(this, "Justification saisie : " + justification);
+
     }//GEN-LAST:event_txtJustificationActionPerformed
 
     private void bnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnAddActionPerformed
@@ -280,7 +306,14 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
             return;
         }
 
-        if (as.create(new Absence(justification, etudiant, seance))) {
+        String date = seance.getDate().toString();
+        String heure = seance.getHeure();
+
+        Absence absence = new Absence(justification, etudiant, seance);
+        absence.setDate(date);
+        absence.setHeure(heure);
+
+        if (as.create(absence)) {
             JOptionPane.showMessageDialog(this, "Absence ajoutée !");
             load();
         } else {
@@ -291,17 +324,23 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
 
     private void listeAbsencesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listeAbsencesMouseClicked
         // TODO add your handling code here:
-        id = Integer.parseInt(model.getValueAt(listeAbsences.getSelectedRow(), 0).toString());
+        int selectedRow = listeAbsences.getSelectedRow();
+        if (selectedRow != -1) {
+            id = Integer.parseInt(model.getValueAt(selectedRow, 0).toString());
 
-        // Récupérer les infos de la ligne sélectionnée
-        String seanceMatiere = model.getValueAt(listeAbsences.getSelectedRow(), 1).toString();
-        String etudiantNom = model.getValueAt(listeAbsences.getSelectedRow(), 2).toString();
-        String etudiantPrenom = model.getValueAt(listeAbsences.getSelectedRow(), 3).toString();
-        String justification = model.getValueAt(listeAbsences.getSelectedRow(), 4).toString();
+            String seanceMatiere = model.getValueAt(selectedRow, 1).toString();
+            String date = model.getValueAt(selectedRow, 2).toString();
+            String heure = model.getValueAt(selectedRow, 3).toString();
+            String etudiantNom = model.getValueAt(selectedRow, 4).toString();
+            String etudiantPrenom = model.getValueAt(selectedRow, 5).toString();
+            String justification = model.getValueAt(selectedRow, 6).toString();
 
-        // Sélectionner la Seance dans le ComboBox
-        // Remplir la justification
-        txtJustification.setText(justification);
+            txtSeance.setSelectedItem(seanceMatiere);
+            txtDate.setText(date);
+            txtHaure.setText(heure);
+            txtEtudiant.setSelectedItem(etudiantNom);
+            txtJustification.setText(justification);
+        }
     }//GEN-LAST:event_listeAbsencesMouseClicked
 
     private void bnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnUpdateActionPerformed
@@ -311,9 +350,14 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
             Seance seance = (Seance) txtSeance.getSelectedItem();
             Etudiant etudiant = (Etudiant) txtEtudiant.getSelectedItem();
             String justification = txtJustification.getText();
+            String date = txtDate.getText();
+            String heure = txtHaure.getText();
 
-            Absence a = new Absence(justification, etudiant, seance); // Garde l'id de l'absence
-            if (as.update(a)) {
+            Absence absence = new Absence(justification, etudiant, seance);
+            absence.setDate(date);
+            absence.setHeure(heure);
+
+            if (as.update(absence)) {
                 JOptionPane.showMessageDialog(this, "Absence modifiée !");
                 load();
             } else {
@@ -326,10 +370,8 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int res = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment supprimer ?");
         if (res == 0) {
-            String nomEtudiant = model.getValueAt(listeAbsences.getSelectedRow(), 2).toString();
-
+            String nomEtudiant = model.getValueAt(listeAbsences.getSelectedRow(), 4).toString();
             List<Absence> absences = as.findByEtudiantNom(nomEtudiant);
-
             if (!absences.isEmpty()) {
                 Absence a = absences.get(0);
                 if (as.delete(a)) {
@@ -348,11 +390,9 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try {
             txtSeance.removeAllItems();
-
             for (Seance s : new SeanceService().findAll()) {
                 txtSeance.addItem(s.getMatiere());
             }
-
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erreur de chargement des séances !");
@@ -363,11 +403,9 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try {
             txtEtudiant.removeAllItems();
-
             for (Etudiant e : new EtudiantService().findAll()) {
                 txtEtudiant.addItem(e.getNom());
             }
-
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erreur de chargement des étudiants !");
@@ -381,11 +419,15 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable listeAbsences;
+    private javax.swing.JTextField txtDate;
     private javax.swing.JComboBox<String> txtEtudiant;
+    private javax.swing.JTextField txtHaure;
     private javax.swing.JTextField txtJustification;
     private javax.swing.JComboBox<String> txtSeance;
     // End of variables declaration//GEN-END:variables
