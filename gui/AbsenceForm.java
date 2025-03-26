@@ -345,7 +345,7 @@ public class AbsenceForm extends javax.swing.JInternalFrame {
 
     private void bnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnUpdateActionPerformed
         // TODO add your handling code here:
-        int response = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment modifier ?");
+        int response = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment modifier ??");
         if (response == 0) {
             Seance seance = (Seance) txtSeance.getSelectedItem();
             Etudiant etudiant = (Etudiant) txtEtudiant.getSelectedItem();

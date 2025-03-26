@@ -1,55 +1,53 @@
 package services;
 
-import java.util.Properties;
+import com.mysql.cj.Session;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import javax.mail.*;
 import javax.mail.internet.*;
+import java.util.Properties;
 
 /**
  * Classe responsable de l'envoi des emails via SMTP
  *
  * @author ichou
  */
+
+
 public class EmailSender {
 
-    private static final String FROM_EMAIL = "r.aitichou2678@uca.ac.ma";
-    private static final String PASSWORD = "testtesttest111111";
-
-    /**
-     * Envoie un email à un destinataire avec un sujet et un contenu donnés
-     *
-     * @param to Destinataire
-     * @param subject Sujet de l'email
-     * @param messageText Contenu du message (HTML accepté)
-     * @return true si l'envoi est réussi, false sinon
-     */
-    public static boolean sendEmail(String to, String subject, String messageText) {
-        Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+    public static void sendEmail(String toEmail, String newPassword) {
+        final String username = "contact.a.ichou.rafik@gmail.com";
+        final String password = "Cleinfo2025##testProjetJava";
+       Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com"); // Serveur SMTP de Gmail
+        props.put("mail.smtp.port", "587"); // Port pour Gmail
 
-        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+        // creation de la session
+        Session session = Session.getInstance(props,
+          new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(FROM_EMAIL, PASSWORD);
+                return new PasswordAuthentication(username, password);
             }
-        });
+          });
 
         try {
-            Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress(FROM_EMAIL));
-            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            msg.setSubject(subject);
-            msg.setContent(messageText, "text/html; charset=UTF-8");
-            msg.setSentDate(new java.util.Date());
+            // creation du message
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+            message.setSubject("Réinitialisation de votre mot de passe");
+            message.setText("Votre nouveau mot de passe temporaire est : " + newPassword);
 
-            Transport.send(msg);
-            System.out.println("✅ Email envoyé avec succès à " + to);
-            return true;
+            // envoi du message
+            Transport.send(message);
+
+            System.out.println("Email envoyé avec succès.");
+
         } catch (MessagingException e) {
-            System.err.println("❌ Erreur lors de l'envoi de l'email : " + e.getMessage());
-            return false;
+            throw new RuntimeException("Erreur lors de l'envoi de l'email : " + e.getMessage());
         }
-    }
 }

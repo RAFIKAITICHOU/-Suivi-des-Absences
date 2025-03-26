@@ -61,7 +61,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Information des etudiants"));
 
         jLabel1.setText("Nom");
@@ -76,6 +76,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
             }
         });
 
+        bnAdd.setBackground(new java.awt.Color(0, 153, 0));
         bnAdd.setText("Ajouter");
         bnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +84,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
             }
         });
 
+        bnUpdate.setBackground(new java.awt.Color(0, 51, 204));
         bnUpdate.setText("Modifier");
         bnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +92,7 @@ public class EtudiantForm extends javax.swing.JInternalFrame {
             }
         });
 
+        bnDelete.setBackground(new java.awt.Color(204, 0, 0));
         bnDelete.setText("Supprimer");
         bnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
