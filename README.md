@@ -158,6 +158,6 @@ Chaque utilisateur a un accès spécifique selon son rôle.
 ## 🤝 Contributeurs
 AIT ICHOU RAFIK
 
-Encadrant: <a href="https://www.linkedin.com/in/mohamed-lachgar-33394b15/">**LACHGAR Mohamed**</a>
+Encadrant: <a href="https://www.linkedin.com/in/mohamed-lachgar-33394b15/" trget="_blank">**LACHGAR Mohamed**</a>
 
 ---
